@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Website - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        header {
+            background-color: #fbe076;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin-top: 10px;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav li:hover {
+            color: rgb(197, 18, 161);
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        .search {
+            text-align: center;
+            justify-content: center;
+            display: inline;
+            margin-left: 38%;
+        }
+
+        input {
+            text-align: left;
+            width: 250px;
+            margin-top: 20px;
+            padding: 4px;
+            border: 1px solid black;
+            border-radius: 2px;
+        }
+
+        button {
+            background-color: rgb(249, 79, 79);
+            width: 70px;
+            margin: 4px;
+            padding: 4px;
+            border: none;
+            border-radius: 2px;
+        }
+
+        #Food-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .Food {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .Food img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .Food h3 {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .Food p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Food Website</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="search">
+        <input type="search" id="search" placeholder="Enter The food name">
+        <button id="searchButton">search</button>
+    </div>
+
+    <main>
+        <section id="Food-menu">
+            <div class="Food">
+                <img src="pizza.jpg" alt="pizaa">
+                <h3>pizaa</h3>
+                <p>$5</p>
+            </div>
+
+            <div class="Food">
+                <img src="bargar.jpg" alt="bargar">
+                <h3>bargar</h3>
+                <p>$3</p>
+            </div>
+
+            <div class="Food">
+                <img src="paasta.jpg" alt="pasta">
+                <h3>pasta</h3>
+                <p>$2.5</p>
+            </div>
+
+            <div class="Food">
+                <img src="KFC.jpg" alt="KFC">
+                <h3>KFC</h3>
+                <p>$3.5</p>
+            </div>
+
+            <div class="Food">
+                <img src="chips.jpg" alt="chips">
+                <h3>chips</h3>
+                <p>$1.5</p>
+            </div>
+
+            <div class="Food">
+                <img src="noodls.jpg" alt="nodls">
+                <h3>nodls</h3>
+                <p>$1</p>
+            </div>
+
+            <div class="Food">
+                <img src="dosa.jpg" alt="dosa">
+                <h3>dosa</h3>
+                <p>$3</p>
+            </div>
+
+            <div class="Food">
+                <img src="manchurian.jpg" alt="manchurian">
+                <h3>manchurian</h3>
+                <p>$1.2</p>
+            </div>
+
+            <div class="Food">
+                <img src="Sandwich.jpg" alt="Sandwich">
+                <h3>Sandwich</h3>
+                <p>$2</p>
+            </div>
+
+            <div class="Food">
+                <img src="Stobary.jpg" alt="Stobary">
+                <h3>Stobary</h3>
+                <p>$1.4</p>
+            </div>
+
+            <div class="Food">
+                <img src="vegdish.jpg" alt="vegdish">
+                <h3>Veg dish</h3>
+                <p>$5</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.getElementById('searchButton').addEventListener("click", () => {
+            let searchinput = document.getElementById('search').value
+            let foodItems = document.querySelectorAll('.Food');
+
+            foodItems.forEach(item => {
+                const foodname = item.querySelector('h3').textContent
+
+                if (foodname.includes(searchinput)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

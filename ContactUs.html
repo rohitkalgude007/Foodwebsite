@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        ul,
+        li,
+        input,
+        textarea,
+        button {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #fbe076;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav a:hover {
+            color: #c112a1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container .header h1 {
+            font-size: 30px;
+        }
+
+        .container .header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .container .contact-form {
+            margin-bottom: 20px;
+        }
+
+        .container .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container .contact-form label {
+            margin-bottom: 5px;
+        }
+
+        .container .contact-form input,
+        .container .contact-form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container .contact-form button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container .contact-form button:hover {
+            background-color: #218838;
+        }
+
+
+        .container .footer {
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="About">
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="ContactUs.html">ContactUs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Please reach out with any questions or feedback.</p>
+        </div>
+
+
+        <div class="contact-form">
+            <form action="/submit_contact_form" method="post" onsubmit="return validateForm()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="food">Food Name:</label>
+                <input type="text" id="food" name="food" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>For common questions, check out our <a href="/faq">FAQ</a> page.</p>
+            <p><strong>Operating Hours:</strong> Monday - Friday, 9 AM - 5 PM</p>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            let name = document.querySelector("#name").value
+            let email = document.querySelector("#email").value
+            let food = document.querySelector("#food").value
+            let message = document.querySelector("#message").value
+
+            if (name.length < 10) {
+                alert('Name must be at least 6 characters long.')
+                return false
+            }
+            else if (email.length < 15) {
+                alert("Email must be at least 15 characters long.")
+                return false
+            }
+            else if (food.length < 6) {
+                alert("Food must be at least 6 characters long.");
+                return false
+            }
+            else if (message.length < 10) {
+                alert("Message must be at least 10 characters long.");
+                return false
+            }
+            else {
+                alert("Your feedbacksend succefullly submited")
+                return true
+            }
+        }
+    </script>
+</body>
+
+</html>
